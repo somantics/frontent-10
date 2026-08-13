@@ -10,7 +10,7 @@ interface Props {
 function Counter({ label, count, max }: Props) {
   return (
     <div>
-      <h1>{label}</h1>
+      <h3>{label}</h3>
       <DeleteButton></DeleteButton>
       <p>
         {count}/{max}

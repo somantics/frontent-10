@@ -1,7 +1,7 @@
 function Accumulator() {
   return (
     <section>
-      <h1>Accumulator</h1>
+      <h2>Accumulator</h2>
       <p>0</p>
       <p>Total points accumulated.</p>
     </section>
