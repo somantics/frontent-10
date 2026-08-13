@@ -6,8 +6,8 @@ function CounterSection() {
   return (
     <section>
       <div>
-        <PrimaryButton></PrimaryButton>
-        <SecondaryButton></SecondaryButton>
+        <PrimaryButton text="+ Lägg till räknare" onClick={() => {}} />
+        <SecondaryButton text="Nollställ alla räknare" onClick={() => {}} />
       </div>
       <CounterGrid />
     </section>

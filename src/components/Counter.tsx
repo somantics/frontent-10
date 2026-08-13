@@ -11,11 +11,11 @@ function Counter({ label, count, max }: Props) {
   return (
     <div>
       <h3>{label}</h3>
-      <DeleteButton></DeleteButton>
+      <DeleteButton text="Ta bort" onClick={() => {}} />
       <p>
         {count}/{max}
       </p>
-      <PrimaryButton></PrimaryButton>
+      <PrimaryButton text="Öka värde" onClick={() => {}} />
     </div>
   );
 }
