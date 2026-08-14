@@ -41,6 +41,11 @@ function CounterSection() {
     updateCounters(defaultCounters);
   };
 
+  const onReset = () => {
+    onResetCounters();
+    setPoints(0);
+  };
+
   const updateCounters = (list: CounterData[]) => {
     setCounters(list.sort((a, b) => a.id - b.id));
   };
@@ -51,10 +56,7 @@ function CounterSection() {
       <Accumulator points={points} />
       <div>
         <PrimaryButton text="+ Lägg till räknare" onClick={() => {}} />
-        <SecondaryButton
-          text="Nollställ alla räknare"
-          onClick={onResetCounters}
-        />
+        <SecondaryButton text="Nollställ" onClick={onReset} />
       </div>
       <CounterGrid
         onCounterClicked={onIncreaseCounter}
