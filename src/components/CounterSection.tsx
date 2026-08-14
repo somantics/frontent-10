@@ -27,7 +27,7 @@ function CounterSection() {
       const newCounters = [...unchanged, newCounter as CounterData];
       if (newCounters.reduce((total, item) => total + item.count, 0) >= 10) {
         setPoints(points + 1);
-        onResetCounters();
+        onResetToZero();
       } else {
         updateCounters(newCounters);
       }
@@ -52,6 +52,17 @@ function CounterSection() {
   const onResetCounters = () => {
     updateCounters(defaultCounters);
     setNextIndex(4);
+  };
+
+  const onResetToZero = () => {
+    const resetCounters = counters.map((old) => {
+      return {
+        id: old.id,
+        count: 0,
+        max: old.max,
+      } as CounterData;
+    });
+    updateCounters(resetCounters);
   };
 
   const onReset = () => {
