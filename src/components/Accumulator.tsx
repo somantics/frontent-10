@@ -1,8 +1,12 @@
-function Accumulator() {
+interface Props {
+  points: number;
+}
+
+function Accumulator({ points }: Props) {
   return (
     <section>
       <h2>Accumulator</h2>
-      <p>0</p>
+      <p>{points}</p>
       <p>Total points accumulated.</p>
     </section>
   );

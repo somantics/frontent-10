@@ -12,17 +12,24 @@ import {
 
 function CounterSection() {
   const [counters, setCounters] = useState(defaultCounters);
+  const [points, setPoints] = useState(0);
 
   const onIncreaseCounter = (id: number) => {
     const oldCounter = counters.find((item) => item.id === id);
-    if (oldCounter && oldCounter.count < oldCounter.max) {
+    if (oldCounter) {
       const newCounter = {
         id: oldCounter.id,
         count: oldCounter.count + 1,
         max: oldCounter.max,
       };
       const unchanged = counters.filter((item) => item.id !== id);
-      updateCounters([...unchanged, newCounter as CounterData]);
+      const newCounters = [...unchanged, newCounter as CounterData];
+      if (newCounters.reduce((total, item) => total + item.count, 0) >= 10) {
+        setPoints(points + 1);
+        onResetCounters();
+      } else {
+        updateCounters(newCounters);
+      }
     }
   };
 
@@ -41,7 +48,7 @@ function CounterSection() {
   return (
     <CounterContext value={counters}>
       <GoalTracker />
-      <Accumulator />
+      <Accumulator points={points} />
       <div>
         <PrimaryButton text="+ Lägg till räknare" onClick={() => {}} />
         <SecondaryButton

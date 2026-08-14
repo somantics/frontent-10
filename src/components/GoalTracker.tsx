@@ -5,6 +5,7 @@ import { CounterContext } from "../CounterContext";
 function GoalTracker() {
   const counters = useContext(CounterContext);
   const sum = counters.reduce((total, item) => total + item.count, 0);
+
   return (
     <section>
       <p>Progress</p>

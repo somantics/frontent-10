@@ -31,6 +31,8 @@ export default function Counter({ id, label, onIncrement, onDelete }: Props) {
     onDelete(id);
   };
 
+  const isAtMax = current !== undefined && max !== undefined && current >= max;
+
   return (
     <div>
       <h3>{label}</h3>
@@ -38,7 +40,7 @@ export default function Counter({ id, label, onIncrement, onDelete }: Props) {
       <p>
         {current}/{max}
       </p>
-      <PrimaryButton text="Öka värde" onClick={onClick} />
+      <PrimaryButton text="Öka värde" onClick={onClick} disabled={isAtMax} />
     </div>
   );
 }
