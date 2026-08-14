@@ -26,13 +26,20 @@ function CounterSection() {
     }
   };
 
+  const onResetCounters = () => {
+    setCounters(defaultCounters);
+  };
+
   return (
     <CounterContext value={counters}>
       <GoalTracker />
       <Accumulator />
       <div>
         <PrimaryButton text="+ Lägg till räknare" onClick={() => {}} />
-        <SecondaryButton text="Nollställ alla räknare" onClick={() => {}} />
+        <SecondaryButton
+          text="Nollställ alla räknare"
+          onClick={onResetCounters}
+        />
       </div>
       <CounterGrid onCounterClicked={onIncreaseCounter} />
     </CounterContext>
