@@ -22,14 +22,20 @@ function CounterSection() {
         max: oldCounter.max,
       };
       const unchanged = counters.filter((item) => item.id !== id);
-      setCounters(
-        [...unchanged, newCounter as CounterData].sort((a, b) => a.id - b.id),
-      );
+      updateCounters([...unchanged, newCounter as CounterData]);
     }
   };
 
+  const onDeleteCounter = (id: number) => {
+    updateCounters(counters.filter((item) => item.id !== id));
+  };
+
   const onResetCounters = () => {
-    setCounters(defaultCounters);
+    updateCounters(defaultCounters);
+  };
+
+  const updateCounters = (list: CounterData[]) => {
+    setCounters(list.sort((a, b) => a.id - b.id));
   };
 
   return (
@@ -43,7 +49,10 @@ function CounterSection() {
           onClick={onResetCounters}
         />
       </div>
-      <CounterGrid onCounterClicked={onIncreaseCounter} />
+      <CounterGrid
+        onCounterClicked={onIncreaseCounter}
+        onCounterDelete={onDeleteCounter}
+      />
     </CounterContext>
   );
 }

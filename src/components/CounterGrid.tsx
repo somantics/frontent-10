@@ -4,9 +4,10 @@ import { CounterContext } from "../CounterContext";
 
 interface Props {
   onCounterClicked: (id: number) => void;
+  onCounterDelete: (id: number) => void;
 }
 
-function CounterGrid({ onCounterClicked }: Props) {
+function CounterGrid({ onCounterClicked, onCounterDelete }: Props) {
   const counters = useContext(CounterContext);
   return (
     <nav>
@@ -15,6 +16,7 @@ function CounterGrid({ onCounterClicked }: Props) {
           label={`Räknare ${item.id + 1}`}
           id={item.id}
           onIncrement={onCounterClicked}
+          onDelete={onCounterDelete}
         />
       ))}
     </nav>
