@@ -22,7 +22,9 @@ function CounterSection() {
         max: oldCounter.max,
       };
       const unchanged = counters.filter((item) => item.id !== id);
-      setCounters([...unchanged, newCounter as CounterData]);
+      setCounters(
+        [...unchanged, newCounter as CounterData].sort((a, b) => a.id - b.id),
+      );
     }
   };
 

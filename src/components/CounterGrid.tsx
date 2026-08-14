@@ -1,16 +1,22 @@
+import { useContext } from "react";
 import Counter from "./Counter";
+import { CounterContext } from "../CounterContext";
 
 interface Props {
   onCounterClicked: (id: number) => void;
 }
 
 function CounterGrid({ onCounterClicked }: Props) {
+  const counters = useContext(CounterContext);
   return (
     <nav>
-      <Counter label="Räknare 1" id={0} onIncrement={onCounterClicked} />
-      <Counter label="Räknare 2" id={1} onIncrement={onCounterClicked} />
-      <Counter label="Räknare 3" id={2} onIncrement={onCounterClicked} />
-      <Counter label="Räknare 4" id={3} onIncrement={onCounterClicked} />
+      {counters.map((item) => (
+        <Counter
+          label={`Räknare ${item.id + 1}`}
+          id={item.id}
+          onIncrement={onCounterClicked}
+        />
+      ))}
     </nav>
   );
 }
