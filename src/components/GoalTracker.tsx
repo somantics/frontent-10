@@ -7,7 +7,7 @@ function GoalTracker() {
   const sum = counters.reduce((total, item) => total + item.count, 0);
 
   return (
-    <section>
+    <section className="border m-2 mx-20 p-2 rounded-md">
       <p>Progress</p>
       <p>{sum}/10</p>
       <ProgressBar />

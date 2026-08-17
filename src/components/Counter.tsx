@@ -34,13 +34,15 @@ export default function Counter({ id, label, onIncrement, onDelete }: Props) {
   const isAtMax = current !== undefined && max !== undefined && current >= max;
 
   return (
-    <div>
-      <h3>{label}</h3>
+    <div className="border rounded-md m-2 p-2 grid grid-cols-3 gap-2">
+      <h3 className="col-span-2 m-2 p-2">{label}</h3>
       <DeleteButton text="Ta bort" onClick={onRemove} />
-      <p>
+      <p className="col-span-3">
         {current}/{max}
       </p>
-      <PrimaryButton text="Öka värde" onClick={onClick} disabled={isAtMax} />
+      <div className="col-span-3">
+        <PrimaryButton text="Öka värde" onClick={onClick} disabled={isAtMax} />
+      </div>
     </div>
   );
 }

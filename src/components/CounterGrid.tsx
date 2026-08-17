@@ -10,7 +10,7 @@ interface Props {
 function CounterGrid({ onCounterClicked, onCounterDelete }: Props) {
   const counters = useContext(CounterContext);
   return (
-    <nav>
+    <nav className="grid grid-cols-2 justify-center m-2 px-16">
       {counters.map((item) => (
         <Counter
           label={`Räknare ${item.id + 1}`}

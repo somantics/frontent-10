@@ -78,7 +78,7 @@ function CounterSection() {
     <CounterContext value={counters}>
       <GoalTracker />
       <Accumulator points={points} />
-      <div>
+      <div className="m-2 p-2">
         <PrimaryButton text="+ Lägg till räknare" onClick={onCreateCounter} />
         <SecondaryButton text="Nollställ" onClick={onReset} />
       </div>
